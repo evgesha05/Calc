@@ -17,20 +17,21 @@ class UrController extends Controller
         $a = $request['a'];
         $b = $request['b'];
         $c = $request['c'];
-        $operation = $request['operation'];
-        $result = null;
-        switch ($operation) {
-            case 'UrController':
-                $result = $this->UrController($a, $b, $c, $d, $solutions_count);
-                break;
+        if (isset($request['calculate'])) {
+            $result = $this->ur($a, $b, $c);
         }
+        return view('index', [
+            'a' => $a,
+            'b' => $b,
+            'c' => $c,
+            'result' => $result,
+        ]);
     }
     /**
-     * Вычисление Уравнения
+     * Вычисление логарифма
      *
-     * @param  integer|double    $а   число
-     * @param  integer|double    $b   число
-     * @param  integer|double    $c   число
+     * @param  integer|double    $number   число
+     * @param  integer           $base     основание логарифма
      * @return string            результат вычисления
      */
     public function ur($a, $b, $c)
@@ -57,6 +58,5 @@ class UrController extends Controller
                 }
             }
         }
-        return view('index', compact('a', 'b', 'c', 'solutions_count', 'x1', 'x2', 'x'));
     }
 }

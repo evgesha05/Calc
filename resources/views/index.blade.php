@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @isset($solutions_count)
+    @isset($result)
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-12">
                 <div class="alert alert-secondary border-dark alert-dismissible fade show" role="alert">
