@@ -24,7 +24,17 @@ class UrController extends Controller
                 $result = $this->UrController($a, $b, $c, $d, $solutions_count);
                 break;
         }
-
+    }
+    /**
+     * Вычисление Уравнения
+     *
+     * @param  integer|double    $а   число
+     * @param  integer|double    $b   число
+     * @param  integer|double    $c   число
+     * @return string            результат вычисления
+     */
+    public function ur($a, $b, $c)
+    {
         if (isset($request['a']) && isset($request['b']) && isset($request['c']))
         {
             $d = ($b * $b) - (4 * $a * $c);
